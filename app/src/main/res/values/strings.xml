@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">TFG_LidiaMartinAyuso</string>
+
+    <!-->String del login<-->
+    <string name="nomApp">ZooPervision</string>
+    <string name="usu">Usuario</string>
+    <string name="pass">Contraseña</string>
+    <string name="login">Iniciar sesión</string>
+
+    <!-->String del main<-->
+    <string name="tituloMain">Panel de control</string>
+    <string name="btnAnimales">Animales</string>
+    <string name="btnRecintos">Recintos</string>
+    <string name="btnInventario">Inventario</string>
+    <string name="btnProductos">Productos</string>
+    <string name="btnVentas">Ventas</string>
+    <string name="btnProveedores">Proveedores</string>
+    <string name="btnPedidos">Pedidos</string>
+    <string name="btnEmpleados">Empleados</string>
+
+    <!-->String del animales<-->
+
+
+
+</resources>

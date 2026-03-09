@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tituloMain"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/btnAnimales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnAnimales"/>
+
+        <Button
+            android:id="@+id/btnRecintos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnRecintos"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btnInventario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnInventario"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btnProductos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnProductos"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btnVentas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnVentas"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btnProveedores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnProveedores"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btnPedidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnPedidos"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btnEmpleados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnEmpleados"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
