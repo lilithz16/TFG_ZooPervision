@@ -9,21 +9,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zoopervision.tfg_lidiamartinayuso.R;
-import com.zoopervision.tfg_lidiamartinayuso.entities.AnimalConRecinto;
+import com.zoopervision.tfg_lidiamartinayuso.entities.Inventario;
 
 import java.util.List;
 
-public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder> {
+public class InventarioAdapter extends RecyclerView.Adapter<InventarioAdapter.ViewHolder> {
 
-    List<AnimalConRecinto> lista;
-    OnAnimalClickListener listener;
+    List<Inventario> lista;
+    OnInventarioClickListener listener;
 
-    public interface OnAnimalClickListener {
-        void onAnimalClick(AnimalConRecinto animal);
-        void onAnimalLongClick(AnimalConRecinto animal);
+    public interface OnInventarioClickListener {
+        void onItemClick(Inventario item);
+        void onItemLongClick(Inventario item);
     }
 
-    public AnimalAdapter(List<AnimalConRecinto> lista, OnAnimalClickListener listener) {
+    public InventarioAdapter(List<Inventario> lista, OnInventarioClickListener listener) {
         this.lista = lista;
         this.listener = listener;
     }
@@ -35,8 +35,8 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
         public ViewHolder(View itemView) {
             super(itemView);
 
-            nombre = itemView.findViewById(R.id.txtNombre);
-            info = itemView.findViewById(R.id.txtInfo);
+            nombre = itemView.findViewById(R.id.txtNombreInventario);
+            info = itemView.findViewById(R.id.txtInfoInventario);
         }
     }
 
@@ -45,7 +45,7 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_animal, parent, false);
+                .inflate(R.layout.item_inventario, parent, false);
 
         return new ViewHolder(view);
     }
@@ -53,20 +53,22 @@ public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        AnimalConRecinto animal = lista.get(position);
+        Inventario item = lista.get(position);
 
-        holder.nombre.setText(animal.nombre);
+        holder.nombre.setText(item.nombre);
 
-        holder.info.setText(
-                animal.tipo + " - Recinto: " + animal.nombreRecinto
-        );
+        String texto = "Stock: " + item.stock;
 
-        holder.itemView.setOnClickListener(v -> {
-            listener.onAnimalClick(animal);
-        });
+        if(item.stock <= item.stock_minimo){
+            texto += " ⚠ STOCK BAJO";
+        }
+
+        holder.info.setText(texto);
+
+        holder.itemView.setOnClickListener(v -> listener.onItemClick(item));
 
         holder.itemView.setOnLongClickListener(v -> {
-            listener.onAnimalLongClick(animal);
+            listener.onItemLongClick(item);
             return true;
         });
     }

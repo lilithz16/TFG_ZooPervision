@@ -1,5 +1,6 @@
 package com.zoopervision.tfg_lidiamartinayuso.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zoopervision.tfg_lidiamartinayuso.R;
+import com.zoopervision.tfg_lidiamartinayuso.activities.ListaAnimalesRecintoActivity;
 import com.zoopervision.tfg_lidiamartinayuso.entities.Recinto;
 
 import java.util.List;
@@ -65,6 +67,14 @@ public class RecintoAdapter extends RecyclerView.Adapter<RecintoAdapter.ViewHold
         holder.itemView.setOnLongClickListener(v -> {
             listener.onRecintoLongClick(recinto);
             return true;
+        });
+
+        holder.itemView.setOnClickListener(v -> {
+
+            Intent intent = new Intent(v.getContext(), ListaAnimalesRecintoActivity.class);
+            intent.putExtra("id_recinto", recinto.id_recinto);
+            v.getContext().startActivity(intent);
+
         });
     }
 

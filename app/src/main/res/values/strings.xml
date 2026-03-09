@@ -12,6 +12,7 @@
     <string name="btnAnimales">Animales</string>
     <string name="btnRecintos">Recintos</string>
     <string name="btnInventario">Inventario</string>
+    <string name="btnStockBajo">Stock bajo</string>
     <string name="btnProductos">Productos</string>
     <string name="btnVentas">Ventas</string>
     <string name="btnProveedores">Proveedores</string>
@@ -19,7 +20,10 @@
     <string name="btnEmpleados">Empleados</string>
 
     <!-->String del animales<-->
-
+    <string name="tfNombre">Nombre</string>
+    <string name="tfTipo">Tipo</string>
+    <string name="tfEdad">Edad</string>
+    <string name="btnGuardar">Guardar</string>
 
 
 </resources>

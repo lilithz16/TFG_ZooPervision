@@ -13,6 +13,7 @@ import com.zoopervision.tfg_lidiamartinayuso.R;
 import com.zoopervision.tfg_lidiamartinayuso.adapters.AnimalAdapter;
 import com.zoopervision.tfg_lidiamartinayuso.database.DatabaseClient;
 import com.zoopervision.tfg_lidiamartinayuso.entities.Animal;
+import com.zoopervision.tfg_lidiamartinayuso.entities.AnimalConRecinto;
 
 import java.util.List;
 
@@ -43,16 +44,16 @@ public class ListaAnimalesActivity extends AppCompatActivity {
 
     private void cargarAnimales() {
 
-        List<Animal> lista = DatabaseClient
+        List<AnimalConRecinto> lista = DatabaseClient
                 .getInstance(this)
                 .getAppDatabase()
                 .animalDao()
-                .obtenerTodos();
+                .obtenerAnimalesConRecinto();
 
         AnimalAdapter adapter = new AnimalAdapter(lista, new AnimalAdapter.OnAnimalClickListener() {
 
             @Override
-            public void onAnimalClick(Animal animal) {
+            public void onAnimalClick(AnimalConRecinto animal) {
 
                 Intent intent = new Intent(ListaAnimalesActivity.this, FormularioAnimalActivity.class);
                 intent.putExtra("id", animal.id_animal);
@@ -60,18 +61,24 @@ public class ListaAnimalesActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onAnimalLongClick(Animal animal) {
+            public void onAnimalLongClick(AnimalConRecinto animal) {
 
                 new AlertDialog.Builder(ListaAnimalesActivity.this)
                         .setTitle("Eliminar animal")
                         .setMessage("¿Quieres eliminar este animal?")
                         .setPositiveButton("Sí", (dialog, which) -> {
 
+                            Animal a = DatabaseClient
+                                    .getInstance(ListaAnimalesActivity.this)
+                                    .getAppDatabase()
+                                    .animalDao()
+                                    .obtenerPorId(animal.id_animal);
+
                             DatabaseClient
                                     .getInstance(ListaAnimalesActivity.this)
                                     .getAppDatabase()
                                     .animalDao()
-                                    .eliminar(animal);
+                                    .eliminar(a);
 
                             cargarAnimales();
                         })

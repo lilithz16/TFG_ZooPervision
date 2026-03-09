@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TFG_LidiaMartinAyuso">
 
-        <!-->Pantalla login (inicial)<-->
+        <!-- LOGIN -->
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true">
@@ -23,8 +23,34 @@
             </intent-filter>
         </activity>
 
-        <!-->Pantalla main<-->
+        <!-- MAIN -->
         <activity android:name=".activities.MainActivity" android:exported="true"/>
+        <!-- ANIMALES -->
+        <activity android:name=".activities.ListaAnimalesActivity"/>
+        <activity android:name=".activities.FormularioAnimalActivity"/>
+        <!-- RECINTOS -->
+        <activity android:name=".activities.ListaRecintosActivity"/>
+        <activity android:name=".activities.FormularioRecintoActivity"/>
+        <activity android:name=".activities.ListaAnimalesRecintoActivity"/>
+        <!-- INVENTARIO -->
+        <!-- <activity android:name=".activities.ListaInventarioActivity"/> -->
+        <!-- <activity android:name=".activities.FormularioInventarioActivity"/> -->
+        <activity android:name=".activities.StockBajoActivity"/>
+
+        <!-- EMPLEADOS -->
+        <!-- <activity android:name=".activities.ListaEmpleadosActivity"/> -->
+
+        <!-- PRODUCTOS -->
+        <!-- <activity android:name=".activities.ListaProductosActivity"/> -->
+
+        <!-- VENTAS -->
+        <!-- <activity android:name=".activities.ListaVentasActivity"/> -->
+
+        <!-- PROVEEDORES -->
+        <!-- <activity android:name=".activities.ListaProveedoresActivity"/> -->
+
+        <!-- PEDIDOS -->
+        <!-- <activity android:name=".activities.ListaPedidosActivity"/>  -->
     </application>
 
 </manifest>
