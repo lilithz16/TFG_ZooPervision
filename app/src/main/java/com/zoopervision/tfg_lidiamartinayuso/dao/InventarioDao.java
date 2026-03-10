@@ -31,4 +31,8 @@ public interface InventarioDao {
     @Query("SELECT * FROM inventario WHERE stock <= stock_minimo")
     List<Inventario> obtenerStockBajo();
 
+    //para el dashboard
+    @Query("SELECT COUNT(*) FROM inventario WHERE stock <= stock_minimo")
+    int contarStockBajo();
+
 }

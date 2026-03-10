@@ -23,33 +23,39 @@
             </intent-filter>
         </activity>
 
-        <!-- MAIN -->
+        <!--MAIN-->
         <activity android:name=".activities.MainActivity" android:exported="true"/>
-        <!-- ANIMALES -->
+        <!--ANIMALES-->
         <activity android:name=".activities.ListaAnimalesActivity"/>
         <activity android:name=".activities.FormularioAnimalActivity"/>
-        <!-- RECINTOS -->
+        <!--RECINTOS-->
         <activity android:name=".activities.ListaRecintosActivity"/>
         <activity android:name=".activities.FormularioRecintoActivity"/>
         <activity android:name=".activities.ListaAnimalesRecintoActivity"/>
-        <!-- INVENTARIO -->
-        <!-- <activity android:name=".activities.ListaInventarioActivity"/> -->
-        <!-- <activity android:name=".activities.FormularioInventarioActivity"/> -->
+        <!--INVENTARIO-->
+        <activity android:name=".activities.ListaInventarioActivity"/>
+        <activity android:name=".activities.FormularioInventarioActivity"/>
         <activity android:name=".activities.StockBajoActivity"/>
 
-        <!-- EMPLEADOS -->
+        <!--EMPLEADOS-->
         <!-- <activity android:name=".activities.ListaEmpleadosActivity"/> -->
 
-        <!-- PRODUCTOS -->
+        <!--DASHBOARD-->
+        <activity android:name=".activities.DashboardActivity"/>
+
+        <!--PRODUCTOS-->
         <!-- <activity android:name=".activities.ListaProductosActivity"/> -->
 
-        <!-- VENTAS -->
-        <!-- <activity android:name=".activities.ListaVentasActivity"/> -->
+        <!--VENTAS-->
+        <activity android:name=".activities.ListaVentasActivity"/>
+        <activity android:name=".activities.RegistrarVentaActivity"/>
+        <activity android:name=".activities.DetalleVentaActivity"/>
 
-        <!-- PROVEEDORES -->
-        <!-- <activity android:name=".activities.ListaProveedoresActivity"/> -->
+        <!--PROVEEDORES-->
+        <activity android:name=".activities.ListaProveedoresActivity"/>
+        <activity android:name=".activities.FormularioProveedorActivity"/>
 
-        <!-- PEDIDOS -->
+        <!--PEDIDOS-->
         <!-- <activity android:name=".activities.ListaPedidosActivity"/>  -->
     </application>
 

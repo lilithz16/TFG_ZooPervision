@@ -27,4 +27,8 @@ public interface RecintoDao {
 
     @Query("SELECT * FROM recintos WHERE id_recinto = :id")
     Recinto obtenerPorId(int id);
+
+    //para el dashboard
+    @Query("SELECT COUNT(*) FROM recintos")
+    int contarRecintos();
 }

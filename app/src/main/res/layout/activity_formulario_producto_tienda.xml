@@ -6,33 +6,26 @@
 
     <EditText
         android:id="@+id/etNombre"
-        android:hint="Nombre item"
+        android:hint="Nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etDescripcion"
+        android:hint="Descripción"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etPrecio"
+        android:hint="Precio"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etTipo"
-        android:hint="Tipo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/etStock"
-        android:hint="Stock"
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/etStockMinimo"
-        android:hint="Stock mínimo"
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/etProveedor"
-        android:hint="Proveedor"
+        android:hint="Tipo (entrada / souvenir)"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

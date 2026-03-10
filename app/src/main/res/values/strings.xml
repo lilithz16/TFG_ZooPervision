@@ -18,6 +18,7 @@
     <string name="btnProveedores">Proveedores</string>
     <string name="btnPedidos">Pedidos</string>
     <string name="btnEmpleados">Empleados</string>
+    <string name="btnDashboard">Dashboard</string>
 
     <!-->String del animales<-->
     <string name="tfNombre">Nombre</string>

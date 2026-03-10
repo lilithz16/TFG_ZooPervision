@@ -36,4 +36,8 @@ public interface AnimalDao {
 
     @Query("SELECT * FROM animales WHERE id_recinto = :idRecinto")
     List<Animal> obtenerAnimalesPorRecinto(int idRecinto);
+
+    //para el dashboard
+    @Query("SELECT COUNT(*) FROM animales")
+    int contarAnimales();
 }

@@ -7,16 +7,19 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.zoopervision.tfg_lidiamartinayuso.R;
+import com.zoopervision.tfg_lidiamartinayuso.database.DatabaseClient;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnAnimales, btnRecintos, btnInventario, btnStockBajo, btnProductos;
-    Button btnVentas, btnProveedores, btnPedidos, btnEmpleados;
+    Button btnVentas, btnProveedores, btnPedidos, btnEmpleados, btnDashboard;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        comprobarStockBajo();
 
         btnAnimales = findViewById(R.id.btnAnimales);
         btnRecintos = findViewById(R.id.btnRecintos);
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         btnPedidos = findViewById(R.id.btnPedidos);
         btnEmpleados = findViewById(R.id.btnEmpleados);
         btnStockBajo = findViewById(R.id.btnStockBajo);
+        btnDashboard = findViewById(R.id.btnDashboard);
 
 
         btnAnimales.setOnClickListener(v -> {
@@ -65,5 +69,26 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, ListaEmpleadosActivity.class));
         });
 */
+        btnDashboard.setOnClickListener(v -> {
+
+            Intent intent = new Intent(this, DashboardActivity.class);
+            startActivity(intent);
+
+        });
+    }
+    private void comprobarStockBajo(){
+
+        int stockBajo = DatabaseClient
+                .getInstance(this)
+                .getAppDatabase()
+                .inventarioDao()
+                .contarStockBajo();
+
+        if(stockBajo > 0){
+
+            btnStockBajo.setText("Stock Bajo (" + stockBajo + ")");
+            btnStockBajo.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark));
+
+        }
     }
 }

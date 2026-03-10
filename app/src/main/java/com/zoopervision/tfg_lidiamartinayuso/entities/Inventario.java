@@ -10,11 +10,12 @@ public class Inventario {
     public int id_item;
 
     public String nombre;
-    public String tipo;
+    public String tipo; //Si es para animal o para tienda
 
     public int stock;
-    public int stock_minimo;
+    public int stock_minimo; //lo uso para sacar alerta en rojo
 
     public String proveedor;
+    public String ubicacion;
 
 }

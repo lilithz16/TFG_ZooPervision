@@ -121,13 +121,30 @@
         </LinearLayout>
 
         <!--FILA 5-->
-        <Button
-            android:id="@+id/btnEmpleados"
-            android:text="@string/btnEmpleados"
-            android:drawableTop="@android:drawable/ic_menu_manage"
-            android:layout_margin="6dp"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="80dp"/>
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnEmpleados"
+                android:text="@string/btnEmpleados"
+                android:drawableTop="@android:drawable/ic_menu_manage"
+                android:layout_weight="1"
+                android:layout_margin="6dp"
+                android:layout_width="0dp"
+                android:layout_height="80dp"/>
+
+            <Button
+                android:id="@+id/btnDashboard"
+                android:text="@string/btnDashboard"
+                android:drawableTop="@android:drawable/ic_menu_view"
+                android:layout_weight="1"
+                android:layout_margin="6dp"
+                android:layout_width="0dp"
+                android:layout_height="80dp"/>
+
+        </LinearLayout>
 
 
 
