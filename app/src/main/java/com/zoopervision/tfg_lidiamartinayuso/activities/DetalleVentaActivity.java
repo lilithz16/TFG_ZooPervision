@@ -7,9 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.zoopervision.tfg_lidiamartinayuso.R;
 import com.zoopervision.tfg_lidiamartinayuso.database.DatabaseClient;
+import com.zoopervision.tfg_lidiamartinayuso.entities.DetalleVenta;
 import com.zoopervision.tfg_lidiamartinayuso.entities.Venta;
 
-//Seria el ticket de las compras que se realizaran en el zoo
+import java.util.List;
+
 public class DetalleVentaActivity extends AppCompatActivity {
 
     TextView txtTicket;
@@ -21,19 +23,37 @@ public class DetalleVentaActivity extends AppCompatActivity {
 
         txtTicket = findViewById(R.id.txtTicket);
 
-        int id = getIntent().getIntExtra("id", -1);
+        int idVenta = getIntent().getIntExtra("id", -1);
+
+        cargarTicket(idVenta);
+    }
+
+    private void cargarTicket(int idVenta){
 
         Venta venta = DatabaseClient
                 .getInstance(this)
                 .getAppDatabase()
                 .ventaDao()
-                .obtenerPorId(id);
+                .obtenerPorId(idVenta);
 
-        String ticket =
-                "ZooPervision\n\n" +
-                        "Venta #" + venta.id_venta + "\n" +
-                        "Fecha: " + venta.fecha + "\n\n" +
-                        "Total: " + venta.total + "€";
+        List<DetalleVenta> detalles = DatabaseClient
+                .getInstance(this)
+                .getAppDatabase()
+                .detalleVentaDao()
+                .obtenerPorVenta(idVenta);
+
+        String ticket = "ZooPervision\n\n";
+
+        ticket += "Venta #" + venta.id_venta + "\n";
+        ticket += "Fecha: " + venta.fecha + "\n\n";
+
+        for(DetalleVenta d : detalles){
+
+            ticket += d.producto + " x" + d.cantidad +
+                    " = " + d.subtotal + "€\n";
+        }
+
+        ticket += "\nTOTAL: " + venta.total + "€";
 
         txtTicket.setText(ticket);
     }

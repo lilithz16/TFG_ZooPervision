@@ -56,7 +56,8 @@
         <activity android:name=".activities.FormularioProveedorActivity"/>
 
         <!--PEDIDOS-->
-        <!-- <activity android:name=".activities.ListaPedidosActivity"/>  -->
+        <activity android:name=".activities.ListaPedidosActivity"/>
+        <activity android:name=".activities.DetallePedidoActivity"/>
     </application>
 
 </manifest>

@@ -20,6 +20,7 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.ViewHolder
 
     public interface OnPedidoClickListener {
         void onPedidoClick(Pedido pedido);
+        void onPedidoLongClick(Pedido pedido);
     }
 
     public PedidoAdapter(List<Pedido> lista, OnPedidoClickListener listener){
@@ -58,6 +59,11 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.ViewHolder
         holder.estado.setText("Estado: " + pedido.estado);
 
         holder.itemView.setOnClickListener(v -> listener.onPedidoClick(pedido));
+
+        holder.itemView.setOnLongClickListener(v -> {
+            listener.onPedidoLongClick(pedido);
+            return true;
+        });
     }
 
     @Override
