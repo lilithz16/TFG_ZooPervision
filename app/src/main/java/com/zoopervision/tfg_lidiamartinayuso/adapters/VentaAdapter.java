@@ -19,7 +19,11 @@ public class VentaAdapter extends RecyclerView.Adapter<VentaAdapter.ViewHolder> 
     OnVentaClickListener listener;
 
     public interface OnVentaClickListener {
+
         void onVentaClick(Venta venta);
+
+        void onVentaLongClick(Venta venta);
+
     }
 
     public VentaAdapter(List<Venta> lista, OnVentaClickListener listener) {

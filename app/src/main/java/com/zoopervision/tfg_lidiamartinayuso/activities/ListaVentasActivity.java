@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,8 +18,8 @@ import java.util.List;
 
 public class ListaVentasActivity extends AppCompatActivity {
 
-    RecyclerView recycler;
     Button btnNuevaVenta;
+    RecyclerView recycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +27,12 @@ public class ListaVentasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_ventas);
 
         recycler = findViewById(R.id.recyclerVentas);
-        btnNuevaVenta = findViewById(R.id.btnNuevaVenta);
 
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
         cargarVentas();
+
+        btnNuevaVenta = findViewById(R.id.btnNuevaVenta);
 
         btnNuevaVenta.setOnClickListener(v -> {
 
@@ -48,18 +50,36 @@ public class ListaVentasActivity extends AppCompatActivity {
                 .ventaDao()
                 .obtenerTodas();
 
-        VentaAdapter adapter =
-                new VentaAdapter(lista, venta -> {
+        VentaAdapter adapter = new VentaAdapter(lista, new VentaAdapter.OnVentaClickListener() {
 
-                    Intent intent = new Intent(
-                            ListaVentasActivity.this,
-                            DetalleVentaActivity.class
-                    );
+            @Override
+            public void onVentaClick(Venta venta) {
 
-                    intent.putExtra("id", venta.id_venta);
+                Intent intent = new Intent(ListaVentasActivity.this, DetalleVentaActivity.class);
+                intent.putExtra("id", venta.id_venta);
+                startActivity(intent);
+            }
 
-                    startActivity(intent);
-                });
+            @Override
+            public void onVentaLongClick(Venta venta) {
+
+                new AlertDialog.Builder(ListaVentasActivity.this)
+                        .setTitle("Eliminar venta")
+                        .setMessage("¿Deseas eliminar esta venta?")
+                        .setPositiveButton("Eliminar", (dialog, which) -> {
+
+                            DatabaseClient
+                                    .getInstance(ListaVentasActivity.this)
+                                    .getAppDatabase()
+                                    .ventaDao()
+                                    .eliminar(venta.id_venta);
+
+                            cargarVentas();
+                        })
+                        .setNegativeButton("Cancelar", null)
+                        .show();
+            }
+        });
 
         recycler.setAdapter(adapter);
     }

@@ -9,10 +9,9 @@ public class Venta {
     @PrimaryKey(autoGenerate = true)
     public int id_venta;
 
-    public String producto;
-    public int cantidad;
-    public double precio_unitario;
-    public double total;
     public String fecha;
+
+    public double total;
+
     public int id_empleado;
 }

@@ -1,0 +1,26 @@
+package com.zoopervision.tfg_lidiamartinayuso.dao;
+
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+
+import com.zoopervision.tfg_lidiamartinayuso.entities.Pedido;
+
+import java.util.List;
+
+@Dao
+public interface PedidoDao {
+
+    @Insert
+    void insertar(Pedido pedido);
+
+    @Update
+    void actualizar(Pedido pedido);
+
+    @Query("SELECT * FROM pedidos ORDER BY id_pedido DESC")
+    List<Pedido> obtenerTodos();
+
+    @Query("SELECT * FROM pedidos WHERE id_pedido = :id")
+    Pedido obtenerPorId(int id);
+}

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.zoopervision.tfg_lidiamartinayuso.R;
 import com.zoopervision.tfg_lidiamartinayuso.database.DatabaseClient;
+import com.zoopervision.tfg_lidiamartinayuso.entities.DetalleVenta;
 import com.zoopervision.tfg_lidiamartinayuso.entities.Venta;
 
 import java.text.SimpleDateFormat;
@@ -37,19 +38,35 @@ public class RegistrarVentaActivity extends AppCompatActivity {
         int cantidad = Integer.parseInt(etCantidad.getText().toString());
         double precio = Double.parseDouble(etPrecio.getText().toString());
 
+        double total = cantidad * precio;
+
+        // Crear venta
         Venta venta = new Venta();
 
-        venta.producto = producto;
-        venta.cantidad = cantidad;
-        venta.precio_unitario = precio;
-        venta.total = cantidad * precio;
         venta.fecha = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+        venta.total = total;
+        venta.id_empleado = 1; // luego lo cambiaremos por el usuario logueado
 
-        DatabaseClient
+        long idVenta = DatabaseClient
                 .getInstance(this)
                 .getAppDatabase()
                 .ventaDao()
                 .insertar(venta);
+
+        // Crear detalle
+        DetalleVenta detalle = new DetalleVenta();
+
+        detalle.id_venta = (int) idVenta;
+        detalle.producto = producto;
+        detalle.cantidad = cantidad;
+        detalle.precio_unitario = precio;
+        detalle.subtotal = total;
+
+        DatabaseClient
+                .getInstance(this)
+                .getAppDatabase()
+                .detalleVentaDao()
+                .insertar(detalle);
 
         finish();
     }

@@ -12,7 +12,7 @@ import java.util.List;
 public interface VentaDao {
 
     @Insert
-    void insertar(Venta venta);
+    long insertar(Venta venta);
 
     @Query("SELECT * FROM ventas ORDER BY id_venta DESC")
     List<Venta> obtenerTodas();

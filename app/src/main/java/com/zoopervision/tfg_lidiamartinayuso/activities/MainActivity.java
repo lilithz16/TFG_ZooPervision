@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         btnRecintos.setOnClickListener(v -> {
             startActivity(new Intent(this, ListaRecintosActivity.class));
         });
-/*
+
         btnInventario.setOnClickListener(v -> {
             startActivity(new Intent(this, ListaInventarioActivity.class));
         });
@@ -48,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
         btnStockBajo.setOnClickListener(v -> {
             startActivity(new Intent(this, StockBajoActivity.class));
         });
-
+/*
         btnProductos.setOnClickListener(v -> {
             startActivity(new Intent(this, ListaProductosActivity.class));
         });
-
+*/
         btnVentas.setOnClickListener(v -> {
             startActivity(new Intent(this, ListaVentasActivity.class));
         });
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         btnProveedores.setOnClickListener(v -> {
             startActivity(new Intent(this, ListaProveedoresActivity.class));
         });
-
+/*
         btnPedidos.setOnClickListener(v -> {
             startActivity(new Intent(this, ListaPedidosActivity.class));
         });
