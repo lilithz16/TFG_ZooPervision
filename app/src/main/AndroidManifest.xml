@@ -57,6 +57,7 @@
 
         <!--PEDIDOS-->
         <activity android:name=".activities.ListaPedidosActivity"/>
+        <activity android:name=".activities.RegistrarPedidoActivity"/>
         <activity android:name=".activities.DetallePedidoActivity"/>
     </application>
 
