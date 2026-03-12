@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">TFG_LidiaMartinAyuso</string>
 
-    <!-->String del login<-->
+    <!-->Login<-->
     <string name="nomApp">ZooPervision</string>
     <string name="usu">Usuario</string>
     <string name="pass">Contraseña</string>
     <string name="login">Iniciar sesión</string>
 
-    <!-->String del main<-->
+    <!-->Main<-->
     <string name="tituloMain">Panel de control</string>
     <string name="btnAnimales">Animales</string>
     <string name="btnRecintos">Recintos</string>
@@ -20,11 +20,17 @@
     <string name="btnEmpleados">Empleados</string>
     <string name="btnDashboard">Dashboard</string>
 
-    <!-->String del animales<-->
+    <!-->Animales<-->
     <string name="tfNombre">Nombre</string>
     <string name="tfTipo">Tipo</string>
     <string name="tfEdad">Edad</string>
     <string name="btnGuardar">Guardar</string>
 
+    <!-->Detalles<-->
+    <string name="MarcarRecibido">Marcar como recibido</string>
+    <string name="btnExportar">Exportar a PDF</string>
+
+    <!-->Ventas y Pedidos<-->
+    <string name="btnAgregarVenta">Añadir venta</string>
 
 </resources>

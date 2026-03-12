@@ -16,15 +16,18 @@ public interface PedidoDao {
     @Insert
     long insertar(Pedido pedido);
 
-    @Delete
-    void eliminar(int id);
-
     @Update
     void actualizar(Pedido pedido);
+
+    @Query("DELETE FROM pedidos WHERE id_pedido = :id")
+    void eliminar(int id);
 
     @Query("SELECT * FROM pedidos ORDER BY id_pedido DESC")
     List<Pedido> obtenerTodos();
 
     @Query("SELECT * FROM pedidos WHERE id_pedido = :id")
     Pedido obtenerPorId(int id);
+
+    @Query("UPDATE pedidos SET estado = :estado WHERE id_pedido = :id")
+    void actualizarEstado(int id, String estado);
 }

@@ -1,5 +1,6 @@
 package com.zoopervision.tfg_lidiamartinayuso.adapters;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,13 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.ViewHolder
 
         holder.id.setText("Pedido #" + pedido.id_pedido);
         holder.estado.setText("Estado: " + pedido.estado);
+
+        // COLOR SEGÚN ESTADO
+        if(pedido.estado.equals("pendiente")){
+            holder.estado.setTextColor(Color.RED);
+        }else{
+            holder.estado.setTextColor(Color.GREEN);
+        }
 
         holder.itemView.setOnClickListener(v -> listener.onPedidoClick(pedido));
 
