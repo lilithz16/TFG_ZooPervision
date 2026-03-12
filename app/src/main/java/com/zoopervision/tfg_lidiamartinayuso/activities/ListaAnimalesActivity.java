@@ -3,6 +3,7 @@ package com.zoopervision.tfg_lidiamartinayuso.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.SearchView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,8 @@ public class ListaAnimalesActivity extends AppCompatActivity {
 
     RecyclerView recycler;
     Button btnAgregar;
+    SearchView searchAnimales;
+    AnimalAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,25 @@ public class ListaAnimalesActivity extends AppCompatActivity {
             Intent intent = new Intent(this, FormularioAnimalActivity.class);
             startActivity(intent);
 
+        });
+
+        //Hacer la busqueda
+        searchAnimales.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                if(adapter != null){
+                    adapter.filtrar(newText);
+                }
+
+                return true;
+            }
         });
     }
 

@@ -21,16 +21,43 @@
     <string name="btnDashboard">Dashboard</string>
 
     <!-->Animales<-->
-    <string name="tfNombre">Nombre</string>
-    <string name="tfTipo">Tipo</string>
-    <string name="tfEdad">Edad</string>
+    <string name="nombre">Nombre</string>
+    <string name="tipo">Tipo</string>
+    <string name="edad">Edad</string>
     <string name="btnGuardar">Guardar</string>
 
+    <string name="animalesRecinto">Animales del recinto</string>
+    <string name="btnAñadirAnimal">Añadir animal</string>
+
     <!-->Detalles<-->
-    <string name="MarcarRecibido">Marcar como recibido</string>
+    <string name="marcarRecibido">Marcar como recibido</string>
     <string name="btnExportar">Exportar a PDF</string>
 
     <!-->Ventas y Pedidos<-->
     <string name="btnAgregarVenta">Añadir venta</string>
+
+    <!-->Dashboard<-->
+    <string name="dashboard">Dashboard</string>
+    <string name="txtAnimales">Animales: 0</string>
+    <string name="txtRecintos">Recintos: 0</string>
+    <string name="txtProductosAnimales">Productos animales: 0</string>
+    <string name="txtProductosTienda">Productos tienda: 0</string>
+    <string name="txtStock">Stock bajo: 0</string>
+    <string name="txtventas">Ventas hoy: 0€</string>
+
+    <!-->Inventario<-->
+    <string name="nombreItem">Nombre item</string>
+    <string name="stock">Stock</string>
+    <string name="stockMínimo">Stock mínimo</string>
+    <string name="proveedor">Proveedor</string>
+    <string name="guardar">Guardar</string>
+
+    <!-->Productos<-->
+    <string name="descripcion">Descripción</string>
+    <string name="precio">Precio</string>
+    <string name="tipoProducto">Tipo (entrada / souvenir)</string>
+
+    <!-->Proveedores<-->
+    <string name="empresa">Empresa</string>
 
 </resources>

@@ -9,7 +9,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="Dashboard"
+            android:text="@string/dashboard"
             android:textSize="26sp"
             android:textStyle="bold"
             android:layout_marginBottom="20dp"
@@ -18,35 +18,35 @@
 
         <TextView
             android:id="@+id/txtAnimales"
-            android:text="Animales: 0"
+            android:text="@string/txtAnimales"
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/txtRecintos"
-            android:text="Recintos: 0"
+            android:text="@string/txtRecintos"
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/txtProductosAnimales"
-            android:text="Productos animales: 0"
+            android:text="@string/txtProductosAnimales"
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/txtProductosTienda"
-            android:text="Productos tienda: 0"
+            android:text="@string/txtProductosTienda"
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/txtStockBajo"
-            android:text="Stock bajo: 0"
+            android:text="@string/txtStock"
             android:textColor="#FF0000"
             android:textSize="18sp"
             android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
 
         <TextView
             android:id="@+id/txtVentasHoy"
-            android:text="Ventas hoy: 0€"
+            android:text="@string/txtventas"
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

@@ -5,15 +5,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnAgregarAnimal"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchAnimales"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Añadir animal"/>
+        android:queryHint="Buscar animal"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerAnimales"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btnAgregarAnimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btnAñadirAnimal"/>
 
 </LinearLayout>

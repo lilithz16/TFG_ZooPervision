@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Animales del recinto"
+        android:text="@string/animalesRecinto"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_width="wrap_content"

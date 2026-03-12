@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +21,9 @@ public class ListaInventarioActivity extends AppCompatActivity {
 
     RecyclerView recycler;
     Button btnAgregar;
+    SearchView searchInventario;
+
+    InventarioAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,7 @@ public class ListaInventarioActivity extends AppCompatActivity {
 
         recycler = findViewById(R.id.recyclerInventario);
         btnAgregar = findViewById(R.id.btnAgregarInventario);
+        searchInventario = findViewById(R.id.searchInventario);
 
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
@@ -38,6 +44,24 @@ public class ListaInventarioActivity extends AppCompatActivity {
             startActivity(intent);
 
         });
+
+        searchInventario.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                if(adapter != null){
+                    adapter.filtrar(newText);
+                }
+
+                return true;
+            }
+        });
     }
 
     private void cargarInventario(){
@@ -48,29 +72,36 @@ public class ListaInventarioActivity extends AppCompatActivity {
                 .inventarioDao()
                 .obtenerTodos();
 
-        InventarioAdapter adapter =
-                new InventarioAdapter(lista, new InventarioAdapter.OnInventarioClickListener() {
+        adapter = new InventarioAdapter(lista, new InventarioAdapter.OnInventarioClickListener() {
 
-                    @Override
-                    public void onItemClick(Inventario item) {
+            @Override
+            public void onItemClick(Inventario item) {
 
-                        Intent intent = new Intent(ListaInventarioActivity.this, FormularioInventarioActivity.class);
-                        intent.putExtra("id", item.id_item);
-                        startActivity(intent);
-                    }
+                Intent intent = new Intent(ListaInventarioActivity.this, FormularioInventarioActivity.class);
+                intent.putExtra("id", item.id_item);
+                startActivity(intent);
+            }
 
-                    @Override
-                    public void onItemLongClick(Inventario item) {
+            @Override
+            public void onItemLongClick(Inventario item) {
 
-                        DatabaseClient
-                                .getInstance(ListaInventarioActivity.this)
-                                .getAppDatabase()
-                                .inventarioDao()
-                                .eliminar(item);
+                new AlertDialog.Builder(ListaInventarioActivity.this)
+                        .setTitle("Eliminar item")
+                        .setMessage("¿Quieres eliminar este item?")
+                        .setPositiveButton("Sí", (dialog, which) -> {
 
-                        cargarInventario();
-                    }
-                });
+                            DatabaseClient
+                                    .getInstance(ListaInventarioActivity.this)
+                                    .getAppDatabase()
+                                    .inventarioDao()
+                                    .eliminar(item);
+
+                            cargarInventario();
+                        })
+                        .setNegativeButton("Cancelar", null)
+                        .show();
+            }
+        });
 
         recycler.setAdapter(adapter);
     }

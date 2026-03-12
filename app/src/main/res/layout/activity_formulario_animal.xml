@@ -6,19 +6,19 @@
 
     <EditText
         android:id="@+id/etNombre"
-        android:hint="Nombre"
+        android:hint="@string/nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etTipo"
-        android:hint="Tipo"
+        android:hint="@string/tipo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etEdad"
-        android:hint="Edad"
+        android:hint="@string/edad"
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -30,7 +30,7 @@
 
     <Button
         android:id="@+id/btnGuardar"
-        android:text="Guardar"
+        android:text="@string/btnGuardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

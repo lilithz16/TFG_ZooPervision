@@ -11,20 +11,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.zoopervision.tfg_lidiamartinayuso.R;
 import com.zoopervision.tfg_lidiamartinayuso.entities.Inventario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InventarioAdapter extends RecyclerView.Adapter<InventarioAdapter.ViewHolder> {
 
     List<Inventario> lista;
+    List<Inventario> listaCompleta;
+
     OnInventarioClickListener listener;
 
     public interface OnInventarioClickListener {
         void onItemClick(Inventario item);
+
         void onItemLongClick(Inventario item);
     }
 
     public InventarioAdapter(List<Inventario> lista, OnInventarioClickListener listener) {
-        this.lista = lista;
+        this.lista = new ArrayList<>(lista);
+        this.listaCompleta = new ArrayList<>(lista);
         this.listener = listener;
     }
 
@@ -59,8 +64,8 @@ public class InventarioAdapter extends RecyclerView.Adapter<InventarioAdapter.Vi
 
         String texto = "Stock: " + item.stock;
 
-        if(item.stock <= item.stock_minimo){
-            texto += " ⚠ STOCK BAJO";
+        if (item.stock <= item.stock_minimo) {
+            texto += "⚠ STOCK BAJO ⚠";
         }
 
         holder.info.setText(texto);
@@ -76,5 +81,27 @@ public class InventarioAdapter extends RecyclerView.Adapter<InventarioAdapter.Vi
     @Override
     public int getItemCount() {
         return lista.size();
+    }
+
+    //busqueda
+    public void filtrar(String texto) {
+
+        lista.clear();
+
+        if (texto.isEmpty()) {
+            lista.addAll(listaCompleta);
+        } else {
+            texto = texto.toLowerCase();
+
+            for (Inventario item : listaCompleta) {
+                if (item.nombre.toLowerCase().contains(texto)
+                        || item.tipo.toLowerCase().contains(texto)
+                        || item.proveedor.toLowerCase().contains(texto)) {
+
+                    lista.add(item);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 }

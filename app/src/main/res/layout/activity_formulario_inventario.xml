@@ -6,39 +6,39 @@
 
     <EditText
         android:id="@+id/etNombre"
-        android:hint="Nombre item"
+        android:hint="@string/nombreItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etTipo"
-        android:hint="Tipo"
+        android:hint="@string/tipo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etStock"
-        android:hint="Stock"
+        android:hint="@string/stock"
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etStockMinimo"
-        android:hint="Stock mínimo"
+        android:hint="@string/stockMínimo"
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etProveedor"
-        android:hint="Proveedor"
+        android:hint="@string/proveedor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btnGuardar"
-        android:text="Guardar"
+        android:text="@string/guardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

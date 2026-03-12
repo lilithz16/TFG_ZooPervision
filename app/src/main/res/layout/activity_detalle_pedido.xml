@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"/>
     <Button
         android:id="@+id/btnRecibirPedido"
-        android:text="@string/MarcarRecibido"
+        android:text="@string/marcarRecibido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
