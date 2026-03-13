@@ -16,6 +16,7 @@ public class DashboardActivity extends AppCompatActivity {
     TextView txtProductosTienda;
     TextView txtStockBajo;
     TextView txtVentasHoy;
+    TextView txtPedidosPendientes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class DashboardActivity extends AppCompatActivity {
         txtProductosTienda = findViewById(R.id.txtProductosTienda);
         txtStockBajo = findViewById(R.id.txtStockBajo);
         txtVentasHoy = findViewById(R.id.txtVentasHoy);
+        txtPedidosPendientes = findViewById(R.id.txtPedidosPendientes);
 
         cargarEstadisticas();
     }
@@ -43,6 +45,9 @@ public class DashboardActivity extends AppCompatActivity {
         int productosAnimales = db.productoAnimalDao().contarProductosAnimales();
         int productosTienda = db.productoTiendaDao().contarProductosTienda();
         int stockBajo = db.inventarioDao().contarStockBajo();
+        int pedidosPendientes = db.pedidoDao().contarPedidosPendientes();
+
+
 
         Double ventasHoy = db.ventaDao().ventasHoy();
 
@@ -55,6 +60,7 @@ public class DashboardActivity extends AppCompatActivity {
         txtProductosAnimales.setText("Productos animales: " + productosAnimales);
         txtProductosTienda.setText("Productos tienda: " + productosTienda);
         txtStockBajo.setText("Stock bajo: " + stockBajo);
+        txtPedidosPendientes.setText("Pedidos pendientes: " + pedidosPendientes);
         txtVentasHoy.setText("Ventas hoy: " + ventasHoy + "€");
 
     }

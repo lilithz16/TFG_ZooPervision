@@ -50,6 +50,7 @@
     <string name="txtProductosAnimales">Productos animales: 0</string>
     <string name="txtProductosTienda">Productos tienda: 0</string>
     <string name="txtStock">Stock bajo: 0</string>
+    <string name="txtPedidosPendientes">Pedidos pendientes</string>
     <string name="txtventas">Ventas hoy: 0€</string>
 
     <!-->Inventario<-->
@@ -89,5 +90,6 @@
     <string name="buscarProducto">Buscar producto</string>
     <string name="buscarPedido">Buscar pedido</string>
     <string name="buscarProveedor">Buscar proveedor</string>
+    <string name="buscarVenta">Buscar venta</string>
 
 </resources>

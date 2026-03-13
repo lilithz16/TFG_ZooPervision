@@ -3,6 +3,7 @@ package com.zoopervision.tfg_lidiamartinayuso.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.SearchView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,25 +21,46 @@ public class ListaVentasActivity extends AppCompatActivity {
 
     Button btnNuevaVenta;
     RecyclerView recycler;
+    SearchView searchVentas;
+    VentaAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_ventas);
 
+        btnNuevaVenta = findViewById(R.id.btnNuevaVenta);
+        searchVentas = findViewById(R.id.searchVentas);
         recycler = findViewById(R.id.recyclerVentas);
 
         recycler.setLayoutManager(new LinearLayoutManager(this));
-
-        cargarVentas();
-
-        btnNuevaVenta = findViewById(R.id.btnNuevaVenta);
 
         btnNuevaVenta.setOnClickListener(v -> {
 
             Intent intent = new Intent(this, RegistrarVentaActivity.class);
             startActivity(intent);
 
+        });
+
+        cargarVentas();
+
+        //buscador
+        searchVentas.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                if(adapter != null){
+                    adapter.filtrar(newText);
+                }
+
+                return true;
+            }
         });
     }
 
@@ -50,7 +72,7 @@ public class ListaVentasActivity extends AppCompatActivity {
                 .ventaDao()
                 .obtenerTodas();
 
-        VentaAdapter adapter = new VentaAdapter(lista, new VentaAdapter.OnVentaClickListener() {
+        adapter = new VentaAdapter(lista, new VentaAdapter.OnVentaClickListener() {
 
             @Override
             public void onVentaClick(Venta venta) {

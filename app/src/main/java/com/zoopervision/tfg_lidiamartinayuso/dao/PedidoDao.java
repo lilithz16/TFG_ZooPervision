@@ -30,4 +30,8 @@ public interface PedidoDao {
 
     @Query("UPDATE pedidos SET estado = :estado WHERE id_pedido = :id")
     void actualizarEstado(int id, String estado);
+
+    //dashboard
+    @Query("SELECT COUNT(*) FROM pedidos WHERE estado = 'pendiente'")
+    int contarPedidosPendientes();
 }
