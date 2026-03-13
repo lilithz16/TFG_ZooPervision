@@ -12,11 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.zoopervision.tfg_lidiamartinayuso.R;
 import com.zoopervision.tfg_lidiamartinayuso.entities.Pedido;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.ViewHolder> {
 
     List<Pedido> lista;
+    List<Pedido> listaCompleta;
     OnPedidoClickListener listener;
 
     public interface OnPedidoClickListener {
@@ -26,6 +28,7 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.ViewHolder
 
     public PedidoAdapter(List<Pedido> lista, OnPedidoClickListener listener){
         this.lista = lista;
+        this.listaCompleta = new ArrayList<>(lista);
         this.listener = listener;
     }
 
@@ -59,7 +62,7 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.ViewHolder
         holder.id.setText("Pedido #" + pedido.id_pedido);
         holder.estado.setText("Estado: " + pedido.estado);
 
-        // COLOR SEGÚN ESTADO
+        //colos segun estado
         if(pedido.estado.equals("pendiente")){
             holder.estado.setTextColor(Color.RED);
         }else{
@@ -77,5 +80,30 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.ViewHolder
     @Override
     public int getItemCount(){
         return lista.size();
+    }
+
+    //buscador
+    public void filtrar(String texto){
+
+        lista.clear();
+
+        if(texto.isEmpty()){
+            lista.addAll(listaCompleta);
+        }else{
+
+            texto = texto.toLowerCase();
+
+            for(Pedido pedido : listaCompleta){
+
+                if(String.valueOf(pedido.id_pedido).contains(texto)
+                        || pedido.estado.toLowerCase().contains(texto)
+                        || pedido.fecha_pedido.toLowerCase().contains(texto)){
+
+                    lista.add(pedido);
+                }
+            }
+        }
+
+        notifyDataSetChanged();
     }
 }

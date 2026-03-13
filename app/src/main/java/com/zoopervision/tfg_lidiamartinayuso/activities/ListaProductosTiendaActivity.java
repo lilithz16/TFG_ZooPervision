@@ -6,6 +6,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,6 +21,9 @@ public class ListaProductosTiendaActivity extends AppCompatActivity {
 
     RecyclerView recycler;
     Button btnAgregar;
+    SearchView searchProductos;
+
+    ProductoTiendaAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,7 @@ public class ListaProductosTiendaActivity extends AppCompatActivity {
 
         recycler = findViewById(R.id.recyclerProductos);
         btnAgregar = findViewById(R.id.btnAgregarProducto);
+        searchProductos = findViewById(R.id.searchProductos);
 
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
@@ -39,6 +44,24 @@ public class ListaProductosTiendaActivity extends AppCompatActivity {
             startActivity(intent);
 
         });
+
+        searchProductos.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                if(adapter != null){
+                    adapter.filtrar(newText);
+                }
+
+                return true;
+            }
+        });
     }
 
     private void cargarProductos(){
@@ -49,7 +72,7 @@ public class ListaProductosTiendaActivity extends AppCompatActivity {
                 .productoTiendaDao()
                 .obtenerTodos();
 
-        ProductoTiendaAdapter adapter = new ProductoTiendaAdapter(lista, new ProductoTiendaAdapter.OnProductoClickListener() {
+        adapter = new ProductoTiendaAdapter(lista, new ProductoTiendaAdapter.OnProductoClickListener() {
 
             @Override
             public void onProductoClick(ProductoTienda producto) {
@@ -57,7 +80,6 @@ public class ListaProductosTiendaActivity extends AppCompatActivity {
                 Intent intent = new Intent(ListaProductosTiendaActivity.this, FormularioProductoTiendaActivity.class);
                 intent.putExtra("id", producto.id_producto_tienda);
                 startActivity(intent);
-
             }
 
             @Override
@@ -75,7 +97,6 @@ public class ListaProductosTiendaActivity extends AppCompatActivity {
                                     .eliminar(producto);
 
                             cargarProductos();
-
                         })
                         .setNegativeButton("Cancelar", null)
                         .show();

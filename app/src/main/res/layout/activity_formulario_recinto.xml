@@ -6,26 +6,26 @@
 
     <EditText
         android:id="@+id/etNombreRecinto"
-        android:hint="Nombre del recinto"
+        android:hint="@string/nombreRecinto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etTipoRecinto"
-        android:hint="Tipo de recinto"
+        android:hint="@string/tipoRecinto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etCapacidad"
-        android:hint="Capacidad"
+        android:hint="@string/capacidad"
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btnGuardarRecinto"
-        android:text="Guardar recinto"
+        android:text="@string/guardarRecinto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

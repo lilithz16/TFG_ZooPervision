@@ -7,7 +7,7 @@
         android:id="@+id/searchInventario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Buscar producto"/>
+        android:queryHint="@string/buscarProducto"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerInventario"
@@ -17,7 +17,7 @@
 
     <Button
         android:id="@+id/btnAgregarInventario"
-        android:text="Añadir item"
+        android:text="@string/anadirItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

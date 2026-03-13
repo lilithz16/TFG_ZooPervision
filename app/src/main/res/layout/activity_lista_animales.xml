@@ -9,7 +9,7 @@
         android:id="@+id/searchAnimales"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Buscar animal"/>
+        android:queryHint="@string/buscarAnimal"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerAnimales"

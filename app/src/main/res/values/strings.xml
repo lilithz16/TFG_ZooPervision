@@ -35,6 +35,13 @@
 
     <!-->Ventas y Pedidos<-->
     <string name="btnAgregarVenta">Añadir venta</string>
+    <string name="registrarPedido">Registrar pedido</string>
+    <string name="registrarVenta">Registrar venta</string>
+    <string name="producto">Producto</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="precioUnitario">Precio unitario</string>
+    <string name="guardarPedido">Guardar pedido</string>
+    <string name="crearPedido">Crear pedido</string>
 
     <!-->Dashboard<-->
     <string name="dashboard">Dashboard</string>
@@ -51,13 +58,36 @@
     <string name="stockMínimo">Stock mínimo</string>
     <string name="proveedor">Proveedor</string>
     <string name="guardar">Guardar</string>
+    <string name="stockBajo">⚠ Items con stock bajo ⚠</string>
 
     <!-->Productos<-->
     <string name="descripcion">Descripción</string>
     <string name="precio">Precio</string>
     <string name="tipoProducto">Tipo (entrada / souvenir)</string>
+    <string name="anadirItem">Añadir item</string>
+    <string name="anadirproducto">Añadir producto</string>
 
     <!-->Proveedores<-->
     <string name="empresa">Empresa</string>
+    <string name="contacto">Persona de contacto</string>
+    <string name="tlf">Teléfono</string>
+    <string name="email">Email</string>
+    <string name="dir">Dirección</string>
+    <string name="obser">Observaciones</string>
+    <string name="guardarProveedor">Guardar proveedor</string>
+    <string name="anadirProveedor">Añadir proveedor</string>
+
+    <!-->Recintos<-->
+    <string name="nombreRecinto">Nombre del recinto</string>
+    <string name="tipoRecinto">Tipo de recinto</string>
+    <string name="capacidad">Capacidad</string>
+    <string name="guardarRecinto">Guardar recinto</string>
+    <string name="anadirRecinto">Añadir recinto</string>
+
+    <!-->Busquedas<-->
+    <string name="buscarAnimal">Buscar animal</string>
+    <string name="buscarProducto">Buscar producto</string>
+    <string name="buscarPedido">Buscar pedido</string>
+    <string name="buscarProveedor">Buscar proveedor</string>
 
 </resources>

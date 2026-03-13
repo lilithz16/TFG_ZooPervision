@@ -6,27 +6,27 @@
 
     <EditText
         android:id="@+id/etProducto"
-        android:hint="Producto"
+        android:hint="@string/producto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etCantidad"
-        android:hint="Cantidad"
+        android:hint="@string/cantidad"
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/etPrecio"
-        android:hint="Precio unitario"
+        android:hint="@string/precioUnitario"
         android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:text="Registrar venta"
+        android:text="@string/registrarVenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

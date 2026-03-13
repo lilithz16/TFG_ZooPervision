@@ -11,11 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.zoopervision.tfg_lidiamartinayuso.R;
 import com.zoopervision.tfg_lidiamartinayuso.entities.Proveedor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProveedorAdapter extends RecyclerView.Adapter<ProveedorAdapter.ViewHolder> {
 
     List<Proveedor> lista;
+    List<Proveedor> listaCompleta;
+
     OnProveedorClickListener listener;
 
     public interface OnProveedorClickListener {
@@ -24,7 +27,8 @@ public class ProveedorAdapter extends RecyclerView.Adapter<ProveedorAdapter.View
     }
 
     public ProveedorAdapter(List<Proveedor> lista, OnProveedorClickListener listener) {
-        this.lista = lista;
+        this.lista = new ArrayList<>(lista);
+        this.listaCompleta = new ArrayList<>(lista);
         this.listener = listener;
     }
 
@@ -58,7 +62,7 @@ public class ProveedorAdapter extends RecyclerView.Adapter<ProveedorAdapter.View
         holder.nombre.setText(proveedor.nombre_empresa);
 
         holder.info.setText(
-                proveedor.contacto + " | " + proveedor.telefono
+                proveedor.telefono + " - " + proveedor.email
         );
 
         holder.itemView.setOnClickListener(v -> listener.onProveedorClick(proveedor));
@@ -72,5 +76,30 @@ public class ProveedorAdapter extends RecyclerView.Adapter<ProveedorAdapter.View
     @Override
     public int getItemCount() {
         return lista.size();
+    }
+
+    //buscador
+    public void filtrar(String texto){
+
+        lista.clear();
+
+        if(texto.isEmpty()){
+            lista.addAll(listaCompleta);
+        }else{
+
+            texto = texto.toLowerCase();
+
+            for(Proveedor proveedor : listaCompleta){
+
+                if(proveedor.nombre_empresa.toLowerCase().contains(texto)
+                        || proveedor.telefono.toLowerCase().contains(texto)
+                        || proveedor.email.toLowerCase().contains(texto)){
+
+                    lista.add(proveedor);
+                }
+            }
+        }
+
+        notifyDataSetChanged();
     }
 }

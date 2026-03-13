@@ -10,43 +10,43 @@
 
         <EditText
             android:id="@+id/etEmpresa"
-            android:hint="Empresa"
+            android:hint="@string/empresa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/etContacto"
-            android:hint="Persona de contacto"
+            android:hint="@string/contacto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/etTelefono"
-            android:hint="Teléfono"
+            android:hint="@string/tlf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/etEmail"
-            android:hint="Email"
+            android:hint="@string/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/etDireccion"
-            android:hint="Dirección"
+            android:hint="@string/dir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/etObservaciones"
-            android:hint="Observaciones"
+            android:hint="@string/obser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/btnGuardarProveedor"
-            android:text="Guardar proveedor"
+            android:text="@string/guardarProveedor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

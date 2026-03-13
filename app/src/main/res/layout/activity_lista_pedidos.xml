@@ -4,15 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnNuevoPedido"
-        android:text="Registrar pedido"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchPedidos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:queryHint="@string/buscarPedido"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerPedidos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btnNuevoPedido"
+        android:text="@string/registrarPedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

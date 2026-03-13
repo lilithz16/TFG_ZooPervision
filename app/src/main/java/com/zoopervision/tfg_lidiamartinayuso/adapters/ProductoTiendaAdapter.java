@@ -39,8 +39,8 @@ public class ProductoTiendaAdapter extends RecyclerView.Adapter<ProductoTiendaAd
         public ViewHolder(View itemView) {
             super(itemView);
 
-            nombre = itemView.findViewById(R.id.txtNombreProducto);
-            info = itemView.findViewById(R.id.txtInfoProducto);
+            nombre = itemView.findViewById(R.id.txtNombre);
+            info = itemView.findViewById(R.id.txtInfo);
         }
     }
 

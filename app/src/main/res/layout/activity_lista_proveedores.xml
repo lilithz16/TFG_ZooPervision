@@ -4,15 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnAgregarProveedor"
-        android:text="Añadir proveedor"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchProveedores"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:queryHint="@string/buscarProveedor"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerProveedores"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btnAgregarProveedor"
+        android:text="@string/anadirProveedor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

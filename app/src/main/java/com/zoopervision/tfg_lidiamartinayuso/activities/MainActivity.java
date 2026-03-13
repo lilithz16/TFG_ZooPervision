@@ -48,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
         btnStockBajo.setOnClickListener(v -> {
             startActivity(new Intent(this, StockBajoActivity.class));
         });
-/*
+
         btnProductos.setOnClickListener(v -> {
-            startActivity(new Intent(this, ListaProductosActivity.class));
+            startActivity(new Intent(this, ListaProductosTiendaActivity.class));
         });
-*/
+
         btnVentas.setOnClickListener(v -> {
             startActivity(new Intent(this, ListaVentasActivity.class));
         });
@@ -60,11 +60,11 @@ public class MainActivity extends AppCompatActivity {
         btnProveedores.setOnClickListener(v -> {
             startActivity(new Intent(this, ListaProveedoresActivity.class));
         });
-/*
+
         btnPedidos.setOnClickListener(v -> {
             startActivity(new Intent(this, ListaPedidosActivity.class));
         });
-
+/*
         btnEmpleados.setOnClickListener(v -> {
             startActivity(new Intent(this, ListaEmpleadosActivity.class));
         });
